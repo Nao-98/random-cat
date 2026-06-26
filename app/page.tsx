@@ -9,8 +9,6 @@ export default async function Home() {
   // APIから画像を取得
   const image = await fetchImage();
 
-  // 画像URLをコンソールに表示
-  console.log("Home: 画像情報を取得しました", image.name);
   // 画像のURLを渡す
   return <CatImage url={image.url} />;
 }
