@@ -12,9 +12,10 @@ export async function fetchImage(): Promise<Image> {
 
     // 直接 Vercel の環境変数を探しに行き、無ければ "DEMO_KEY" を使う
     const apiKey = process.env.CAT_API_KEY || "DEMO_KEY";
-    
+
     const res = await fetch("https://api.thecatapi.com/v1/images/search", {
-        headers: {"x-api-key": CAT_API_KEY },
+        // CAT_API_KEY から apiKey に修正
+        headers: {"x-api-key": apiKey },
     });
     const images = await res.json();
     console.log("fetchImage: 画像情報を取得しました", images);
